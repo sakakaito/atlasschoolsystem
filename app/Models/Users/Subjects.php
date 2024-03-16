@@ -16,6 +16,6 @@ class Subjects extends Model
     ];
 
     public function users(){
-        return $this->hasMany('App\Models\Users\Users');// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\Users');// リレーションの定義
     }
 }
