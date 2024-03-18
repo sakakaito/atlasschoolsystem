@@ -16,6 +16,6 @@ class Subjects extends Model
     ];
 
     public function users(){
-        return $this->belongsToMany('App\Models\Users\Users');// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\Users','subject_users','subject_id','user_id');// リレーションの定義
     }
 }
