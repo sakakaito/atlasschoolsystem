@@ -35,7 +35,7 @@ class RegisterFormRequest extends FormRequest
             'old_day'=>'required|date|after:01|before:today',
             'role'=>'required',Rule::in(['1','2','3','4']),
             'password'=>'required|max:30|min:8|confirmed'
-            //
+            //$old_ymd = ($this->filled(['old_year','old_month','old_day']))
         ];
     }
 }
