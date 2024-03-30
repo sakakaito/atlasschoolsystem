@@ -49,12 +49,18 @@ class PostsController extends Controller
     }
 
     public function postCreate(PostFormRequest $request){
+        $request->validate([
+            'post_category_id' => 'required',
+            'post_title' => 'required|string|max:100',
+            'post_body' => 'required|string|max:5000'
+
+        ]);
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
-        return redirect()->route('post.show');
+        return redirect()->route('post.show',['post' => $post]);
     }
 
     public function postEdit(Request $request){
