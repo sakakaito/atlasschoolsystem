@@ -9,7 +9,7 @@
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
         @foreach($main_categories as $main_category)
-        <optgroup label="{{ $main_category->main_category }}"></optgroup>
+        <option>{{ $main_category->main_category }}</option>
         <!-- サブカテゴリー表示 -->
         </optgroup>
         @endforeach

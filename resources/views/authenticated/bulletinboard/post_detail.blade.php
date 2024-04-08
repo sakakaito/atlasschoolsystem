@@ -7,10 +7,12 @@
         <div class="detail_inner_head">
           <div>
           </div>
+          @if(Auth::user()->id == $post->user_id)
           <div>
             <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
             <a href="{{ route('post.delete', ['id' => $post->id]) }}">削除</a>
           </div>
+          @endif
         </div>
 
         <div class="contributor d-flex">
@@ -21,8 +23,8 @@
           </p>
           <span class="ml-5">{{ $post->created_at }}</span>
         </div>
-        <div class="detsail_post_title">{{ $post->post_title }}</div>
-        <div class="mt-3 detsail_post">{{ $post->post }}</div>
+        <div class="detail_post_title">{{ $post->post_title }}</div>
+        <div class="mt-3 detail_post">{{ $post->post }}</div>
       </div>
       <div class="p-3">
         <div class="comment_container">
