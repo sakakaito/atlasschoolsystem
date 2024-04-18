@@ -44,8 +44,8 @@ class RegisterFormRequest extends FormRequest
         return [
             'over_name'=>'required|string|max:10',
             'under_name'=>'required|string|max:10',
-            'over_name_kana'=>'required|string|katakana|max:30',
-            'under_name_kana'=>'required|string|katakana|max:30',
+            'over_name_kana'=>'required|string|/\A[ァ-ヴー]+\z/u|max:30',
+            'under_name_kana'=>'required|string|/\A[ァ-ヴー]+\z/u|max:30',
             'mail_address'=>'required|email|unique:mail_address|max:100',
             'sex'=>'required',Rule::in(['1','2','3']),
             'datetime_validation' => 'required|date|after:1999-12-31|before:tomorrow',
