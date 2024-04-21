@@ -9,8 +9,13 @@
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
         @foreach($main_categories as $main_category)
-        <option>{{ $main_category->main_category }}</option>
+        <optgroup label="{{ $main_category->main_category }}">
         <!-- サブカテゴリー表示 -->
+        @foreach($sub_categories as $sub_category)
+        @if($main_category->id===$sub_category->main_category_id)
+        <option value="{{$sub_category->id}}">{{$sub_category->sub_category}}</option>
+        @endif
+        @endforeach
         </optgroup>
         @endforeach
       </select>

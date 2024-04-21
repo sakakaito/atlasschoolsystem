@@ -18,6 +18,7 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
+        $subcategories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -35,7 +36,7 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
-        return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
+        return view('authenticated.bulletinboard.posts', compact('posts', 'categories','subcategories', 'like', 'post_comment'));
     }
 
     public function postDetail($post_id){
@@ -81,17 +82,24 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
     public function mainCategoryCreate(Request $request){
+        $request->validate([
+            'main_category_name'=>'required|max:100|string|unique:main_categories',
+            'main_category_id'=>'required'
+        ]);
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
     public function subCategoryCreate(Request $request){
         // dd($request);
+        $request->validate([
+            'sub_category_name'=>'required|max:100|string|unique:sub_categories'
+        ]);
         SubCategory::create(['sub_category' => $request->sub_category_name,
                              'main_category_id' => $request->post_category_id]);
         return redirect()->route('post.input');
     }
 
-    public function commentCreate(Request $request){
+    public function commentCreate(PostFormRequest $request){
         $request->validate([
             'comment' => 'required|string|max:2500'
         ]);

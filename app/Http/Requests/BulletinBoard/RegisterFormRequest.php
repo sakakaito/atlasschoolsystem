@@ -44,14 +44,33 @@ class RegisterFormRequest extends FormRequest
         return [
             'over_name'=>'required|string|max:10',
             'under_name'=>'required|string|max:10',
-            'over_name_kana'=>'required|string|/\A[ァ-ヴー]+\z/u|max:30',
-            'under_name_kana'=>'required|string|/\A[ァ-ヴー]+\z/u|max:30',
+            'over_name_kana'=>'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
+            'under_name_kana'=>'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'mail_address'=>'required|email|unique:mail_address|max:100',
-            'sex'=>'required',Rule::in(['1','2','3']),
+            'sex'=>'required|in:1,2,3',
             'datetime_validation' => 'required|date|after:1999-12-31|before:tomorrow',
-            'role'=>'required',Rule::in(['1','2','3','4']),
-            'password'=>'required|max:30|min:8|confirmed'
+            'role'=>'required|in:1,2,3,4',
+            'password'=>'required|max:30|min:8|confirmed:password',
+            'password_confirmation' => 'required|max:30|min:8'
             //$old_ymd = ($this->filled(['old_year','old_month','old_day']))
+        ];
+    }
+    public function messages(){
+        return [
+            "required" => "必須項目です",
+            "email" => "メールアドレスの形式で入力してください",
+            "regex" => "全角カタカナで入力してください",
+            "string" => "文字で入力してください",
+            "max" => "30文字以内で入力してください",
+            "over_name.max" => "10文字以内で入力してください",
+            "under_name.max" => "10文字以内で入力してください",
+            "min" => "8文字以上で入力してください",
+            "mail_address.max" => "100文字以内で入力してください",
+            "unique" => "登録済みのメールアドレスは無効です",
+            "confirmed" => "パスワード確認が一致しません",
+            "datetime_validation.date" => "有効な日付に直してください",
+            "datetime_validation.after" => "2000年1月1日から今日までの日付を入力してください",
+            "datetime_validation.before" => "2000年1月1日から今日までの日付を入力してください"
         ];
     }
 }
