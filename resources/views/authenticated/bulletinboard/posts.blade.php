@@ -34,11 +34,20 @@
       </div>
       <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
-      <ul>
+      <div>
         @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
+        <ul class="main_categories" category_id="{{ $category->id }}"><li><span>{{ $category->main_category }}</span></li>
+        @foreach($subcategories as $subcategory)
+        @if($category->id===$subcategory->main_category_id)
+        <li class="sub_categories" subcategory_id="{{$subcategory->id}}">
+        <input type="submit" name="category_word" class="category_btn" value="{{$subcategory->sub_category}}" form="postSearchRequest">
+        <!-- <span>{{$subcategory->sub_category}}</span> -->
+        </li>
+        @endif
         @endforeach
-      </ul>
+        </ul>
+        @endforeach
+
     </div>
   </div>
   <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
