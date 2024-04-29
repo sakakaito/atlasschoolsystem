@@ -42,6 +42,15 @@
   @can('admin')
   <div class="w-25 ml-auto mr-auto">
     <div class="category_area mt-5 p-5">
+    @if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif 
     <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">
     {{ csrf_field() }}
       <div class="">

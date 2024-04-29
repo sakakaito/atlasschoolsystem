@@ -57,11 +57,16 @@ class PostsController extends Controller
             'post_body' => 'required|string|max:5000'
 
         ]);
+        $sub_category_id=$request->post_category_id;
+        // dd($sub_category_id);
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+        $post_create = Post::findOrFail($post->id);
+        $post_create->subCategories()->attach($sub_category_id);
+        // DB::commit();
         return redirect()->route('post.show',['post' => $post]);
     }
 
@@ -82,9 +87,9 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
     public function mainCategoryCreate(Request $request){
+        // dd($request);
         $request->validate([
-            'main_category_name'=>'required|max:100|string|unique:main_categories',
-            'main_category_id'=>'required'
+            'main_category_name'=>'required|max:100|string|unique:main_categories,main_category',
         ]);
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
@@ -92,7 +97,8 @@ class PostsController extends Controller
     public function subCategoryCreate(Request $request){
         // dd($request);
         $request->validate([
-            'sub_category_name'=>'required|max:100|string|unique:sub_categories'
+            'sub_category_name'=>'required|max:100|string|unique:sub_categories,sub_category',
+            'post_category_id' =>'required'
         ]);
         SubCategory::create(['sub_category' => $request->sub_category_name,
                              'main_category_id' => $request->post_category_id]);
