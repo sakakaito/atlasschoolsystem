@@ -50,7 +50,7 @@
             @endforeach
         </ul>
     </div>
-    @endif 
+    @endif
     <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">
     {{ csrf_field() }}
       <div class="">
