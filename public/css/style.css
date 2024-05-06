@@ -157,6 +157,10 @@ li{
 .comment_container{
   background:#FFF;
 }
+.comment_container li{
+  color: red;
+}
+
 .comment_area p,
 .comment_area input{
   font-size:12px;
@@ -233,3 +237,7 @@ li{
 .subject_inner{
   display:none;
 }
+/* ログイン画面 */
+/* 新規登録画面 */
+/* .register_form{
+} */
