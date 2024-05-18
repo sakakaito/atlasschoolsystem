@@ -15,4 +15,26 @@
     </div>
   </div>
 </div>
+<!-- モーダル表示 -->
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close">
+    <div class="modal__content">
+      <div class="modal-inner-reserve-day">
+        <p>予約日：
+          <span>
+          <input type="text" name="" placeholder="" class="w-100" readonly>
+          </span>
+        </p>
+      </div>
+      <div class="modal-inner-reserve-part">
+        <input type="" name="" placeholder="" class="w-100" readonly>
+      </div>
+
+      
+      <input type="submit" class="btn btn-primary" value="閉じる">
+      <input type="button" class="btn btn-danger" value="キャンセル">
+
+    </div>
+  </div>
+</div>
 @endsection

@@ -50,7 +50,7 @@ li{
   min-width:100px;
 }
 .pastdaycolor{
-  background-color: #D3D3D3;
+  background-color: #f1f1f1;
 }
 .day_part{
   color:#494949;
@@ -91,6 +91,12 @@ li{
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+}
+.modal-inner-reserve-day input{
+  border: none;
+}
+.modal-inner-reserve-part input{
+  border: none;
 }
 
 /* 掲示板 */
