@@ -11,8 +11,8 @@ $(function(){
         $('.modal-inner-reserve-part p').text(reserve_part);
         $('.reserve-day-hidden').val(reserve_day);
         $('.reserve-part-hidden').val(reserve_part);
-        console.log(reserve_day);
-        console.log(reserve_part);
+        // console.log(reserve_day);
+        // console.log(reserve_part);
 
       });
 

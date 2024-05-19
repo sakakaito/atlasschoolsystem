@@ -37,19 +37,26 @@ class CalendarsController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
     public function delete(Request $request){
-        dd($request);
+        $reserveday=$request->input('reserve_day');
+        $reservepart=$request->input('reserve_part');
+        if($reservepart == "リモ1部"){
+            $reservepart = 1;
+          }else if($reservepart == "リモ2部"){
+            $reservepart = 2;
+          }else if($reservepart == "リモ3部"){
+            $reservepart = 3;
+          }
+        // dd($reserveday,$reservepart);
         DB::beginTransaction();
         try{
-            $getPart = $request->getPart;
-            $getDate = $request->getData;
-            
-                $reserve_settings = ReserveSettings::where('setting_reserve',$getDate)->where('setting_part',$getPart)->first();
+            // dd($getDate,$getPart);
+                $reserve_settings = ReserveSettings::where('setting_reserve',$reserveday)->where('setting_part',$reservepart)->first();
                 $reserve_settings->increment('limit_users');//予約枠を増やす
                 $reserve_settings->users()->detach(Auth::id());//自分が予約している日を消す
             DB::commit();
         }catch(\Exception $e){
             DB::rollback();
         }
-        return redirect()->route('Calendars.general.show',['user_id' => Auth::id()]);
+        return redirect()->route('calendar.general.show',['user_id' => Auth::id()]);
     }
 }

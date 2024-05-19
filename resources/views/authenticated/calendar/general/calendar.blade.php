@@ -17,7 +17,7 @@
 </div>
 <!-- モーダル表示 -->
 <div class="modal js-modal">
-  <div class="modal__bg js-modal-close">
+  <div class="modal__bg js-modal-close"></div>
     <div class="modal__content">
       <div class="modal-inner-reserve-day">
         <span>予約日：</span>
@@ -34,12 +34,10 @@
         </p>
       </div>
         <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
-      <input type="hidden" class="reserve-day-hidden" value="" form="deleteParts">
-      <input type="hidden" class="reserve-part-hidden" value="" form="deleteParts">
-      <button class="btn btn-primary">閉じる</button>
+      <input type="hidden" class="reserve-day-hidden" name="reserve_day" value="" form="deleteParts">
+      <input type="hidden" class="reserve-part-hidden" name="reserve_part" value="" form="deleteParts">
+      <button class="btn btn-primary js-modal-close">閉じる</button>
       <input type="submit" class="btn btn-danger" value="キャンセル" form="deleteParts">
-
     </div>
-  </div>
 </div>
 @endsection
