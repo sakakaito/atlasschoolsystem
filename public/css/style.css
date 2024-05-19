@@ -94,9 +94,11 @@ li{
 }
 .modal-inner-reserve-day input{
   border: none;
+  pointer-events: none;
 }
 .modal-inner-reserve-part input{
   border: none;
+  pointer-events: none;
 }
 
 /* 掲示板 */

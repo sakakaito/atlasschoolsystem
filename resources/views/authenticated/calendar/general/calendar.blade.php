@@ -20,19 +20,24 @@
   <div class="modal__bg js-modal-close">
     <div class="modal__content">
       <div class="modal-inner-reserve-day">
-        <p>予約日：
-          <span>
+        <span>予約日：</span>
+        <p>
+          <!-- <span>
           <input type="text" name="" placeholder="" class="w-100" readonly>
-          </span>
+          </span> -->
         </p>
       </div>
       <div class="modal-inner-reserve-part">
-        <input type="" name="" placeholder="" class="w-100" readonly>
+        <span>時間：</span>
+        <p>
+        <!-- <input type="" name="" placeholder="" class="w-100" readonly> -->
+        </p>
       </div>
-
-      
-      <input type="submit" class="btn btn-primary" value="閉じる">
-      <input type="button" class="btn btn-danger" value="キャンセル">
+        <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
+      <input type="hidden" class="reserve-day-hidden" value="" form="deleteParts">
+      <input type="hidden" class="reserve-part-hidden" value="" form="deleteParts">
+      <button class="btn btn-primary">閉じる</button>
+      <input type="submit" class="btn btn-danger" value="キャンセル" form="deleteParts">
 
     </div>
   </div>

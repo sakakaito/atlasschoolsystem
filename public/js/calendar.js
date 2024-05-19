@@ -5,8 +5,15 @@ $(function(){
         var reserve_part = $(this).attr('reserve_part');
         // console.log(reserve_day);
         // console.log(reserve_part);
-        $('.modal-inner-reserve-day input').val(reserve_day);//modal-inner-reserve-dayクラスのinputに変数を送る
-        $('.modal-inner-reserve-part input').val(reserve_part);
+        // $('.modal-inner-reserve-day input').val(reserve_day);//modal-inner-reserve-dayクラスのinputに変数を送る
+        // $('.modal-inner-reserve-part input').val(reserve_part);
+        $('.modal-inner-reserve-day p').text(reserve_day);//modal-inner-reserve-dayクラスのpタグに変数を送る
+        $('.modal-inner-reserve-part p').text(reserve_part);
+        $('.reserve-day-hidden').val(reserve_day);
+        $('.reserve-part-hidden').val(reserve_part);
+        console.log(reserve_day);
+        console.log(reserve_part);
+
       });
 
       $('.js-modal-close').on('click', function () {
