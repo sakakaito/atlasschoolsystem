@@ -16,6 +16,11 @@ class SelectNames implements DisplayUsers{
     }else{
       $role = array($role);
     }
+    // if(is_null($subjects)){
+    //   $subjects = ['1', '2', '3'];
+    // }else{
+    //   $subjects = array($subjects);
+    // }
     $users = User::with('subjects')
     ->where(function($q) use ($keyword){
       $q->where('over_name', 'like', '%'.$keyword.'%')
@@ -24,6 +29,7 @@ class SelectNames implements DisplayUsers{
       ->orWhere('under_name_kana', 'like', '%'.$keyword.'%');
     })->whereIn('sex', $gender)
     ->whereIn('role', $role)
+    // ->whereIn('subjects.id',$subjects)
     ->orderBy('over_name_kana', $updown)->get();
 
     return $users;
