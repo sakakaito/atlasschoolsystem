@@ -3,11 +3,14 @@
 @section('content')
 <div class="board_area w-100 border m-auto d-flex">
   <div class="post_view w-75 mt-5">
-    <p class="w-75 m-auto">投稿一覧</p>
+    <!-- <p class="w-75 m-auto">投稿一覧</p> -->
     @foreach($posts as $post)
     <div class="post_area border w-75 m-auto p-3">
-      <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
-      <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+      <div>
+        <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
+        <p class="post_title"><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+        <button type="submit" class="sub_category_btn"></button>
+      </div>
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
           <div class="mr-5">
@@ -27,16 +30,21 @@
   </div>
   <div class="other_area border w-25">
     <div class="border m-4">
-      <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="">
+      <div class=""><button class="post_button"><a href="{{ route('post.input') }}">投稿</a></button></div>
+      <div class="keyword_content">
         <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="submit" value="検索" form="postSearchRequest">
       </div>
-      <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
-      <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
+      <div class="like_my_content">
+        <input type="submit" name="like_posts" class="category_like_btn" value="いいねした投稿" form="postSearchRequest">
+        <input type="submit" name="my_posts" class="category_my_btn" value="自分の投稿" form="postSearchRequest">
+      </div>
       <div>
+        <p class="category_search">カテゴリー検索</p>
         @foreach($categories as $category)
-        <ul class="main_categories" category_id="{{ $category->id }}"><li><span>{{ $category->main_category }}</span></li>
+        <ul class="main_categories" category_id="{{ $category->id }}"><li><span>{{ $category->main_category }}</span>
+        <span class="dli-chevron-down"></span>
+        </li>
         @foreach($subcategories as $subcategory)
         @if($category->id===$subcategory->main_category_id)
         <li class="sub_categories" subcategory_id="{{$subcategory->id}}">

@@ -12,10 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Oswald:wght@200&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
-<body>
+<body class="all_content">
   <form action="{{ route('registerPost') }}" method="POST">
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
-      <div class="w-25 vh-75 border p-3">
+      <div class="vh-75 border register_square">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
@@ -70,19 +70,27 @@
         @error('sex')
           <li class="error_message">{{$message}}</li>
           @enderror
-        <div class="mt-3">
-          <input type="radio" name="sex" class="sex" value="1">
-          <label style="font-size:13px">男性</label>
-          <input type="radio" name="sex" class="sex" value="2">
-          <label style="font-size:13px">女性</label>
-          <input type="radio" name="sex" class="sex" value="3">
-          <label style="font-size:13px">その他</label>
+        <div class="mt-3 gender-content">
+          <div>
+            <input type="radio" name="sex" class="sex" value="1">
+            <label style="font-size:13px">男性</label>
+          </div>
+          <div>
+            <input type="radio" name="sex" class="sex" value="2">
+            <label style="font-size:13px">女性</label>
+          </div>
+          <div>
+            <input type="radio" name="sex" class="sex" value="3">
+            <label style="font-size:13px">その他</label>
+          </div>
         </div>
         @error('datetime_validation')
           <li class="error_message">{{$message}}</li>
           @enderror
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
+          <div class="birth-content">
+          <div>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
             <option value="1985">1985</option>
@@ -113,6 +121,8 @@
             <option value="2010">2010</option>
           </select>
           <label style="font-size:13px">年</label>
+          </div>
+          <div>
           <select class="old_month" name="old_month">
             <option value="none">-----</option>
             <option value="01">1</option>
@@ -129,6 +139,8 @@
             <option value="12">12</option>
           </select>
           <label style="font-size:13px">月</label>
+          </div>
+          <div>
           <select class="old_day" name="old_day">
             <option value="none">-----</option>
             <option value="01">1</option>
@@ -164,20 +176,32 @@
             <option value="31">31</option>
           </select>
           <label style="font-size:13px">日</label>
+          </div>
+          </div>
         </div>
         @error('role')
           <li class="error_message">{{$message}}</li>
           @enderror
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>
-          <input type="radio" name="role" class="admin_role role" value="1">
-          <label style="font-size:13px">教師(国語)</label>
-          <input type="radio" name="role" class="admin_role role" value="2">
-          <label style="font-size:13px">教師(数学)</label>
-          <input type="radio" name="role" class="admin_role role" value="3">
-          <label style="font-size:13px">教師(英語)</label>
-          <input type="radio" name="role" class="other_role role" value="4">
-          <label style="font-size:13px" class="other_role">生徒</label>
+          <div class="role-content">
+          <div>
+            <input type="radio" name="role" class="admin_role role" value="1">
+            <label style="font-size:13px">教師(国語)</label>
+          </div>
+          <div>
+            <input type="radio" name="role" class="admin_role role" value="2">
+            <label style="font-size:13px">教師(数学)</label>
+          </div>
+          <div>
+            <input type="radio" name="role" class="admin_role role" value="3">
+            <label style="font-size:13px">教師(英語)</label>
+          </div>
+          <div>
+            <input type="radio" name="role" class="other_role role" value="4">
+            <label style="font-size:13px" class="other_role">生徒</label>
+          </div>
+          </div>
         </div>
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px">選択科目</label>

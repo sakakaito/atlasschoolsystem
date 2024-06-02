@@ -3,6 +3,14 @@ $(function () {
     var category_id = $(this).attr('category_id');
     $('.category_num' + category_id).slideToggle();
   });
+  //main_categoriesをクリックするとサブカテゴリーが開く
+  $('.dli-chevron-down').click(function () {
+    $('.sub_categories').slideToggle();
+  });
+  $('.dli-chevron-down').click(function(){
+		$(this).toggleClass('selected');
+		$(this).next().slideToggle();
+	});
 
   $(document).on('click', '.like_btn', function (e) {
     e.preventDefault();
