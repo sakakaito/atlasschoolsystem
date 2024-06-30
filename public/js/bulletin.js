@@ -4,12 +4,14 @@ $(function () {
     $('.category_num' + category_id).slideToggle();
   });
   //main_categoriesをクリックするとサブカテゴリーが開く
-  $('.dli-chevron-down').click(function () {
-    $('.sub_categories').slideToggle();
-  });
-  $('.dli-chevron-down').click(function(){
-		$(this).toggleClass('selected');
-		$(this).next().slideToggle();
+  // $('.dli-chevron-down').click(function () {
+  //   // $('.sub_categories').slideToggle();
+  //   $(this).next().slideToggle();
+
+  // });
+  $('.toggle_btn').click(function(){
+		$(this).children('.dli-chevron-down').toggleClass('selected');
+		$(this).siblings().slideToggle();
 	});
 
   $(document).on('click', '.like_btn', function (e) {

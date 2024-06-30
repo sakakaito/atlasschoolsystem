@@ -9,7 +9,9 @@
       <div>
         <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
         <p class="post_title"><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
-        <button type="submit" class="sub_category_btn"></button>
+        @foreach ($post->subcategories as $subcategory)
+         <button type="submit" class="sub_category_btn">{{$subcategory->sub_category}}</button>
+        @endforeach
       </div>
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
@@ -28,9 +30,9 @@
     </div>
     @endforeach
   </div>
-  <div class="other_area border w-25">
-    <div class="border m-4">
-      <div class=""><button class="post_button"><a href="{{ route('post.input') }}">投稿</a></button></div>
+  <div class="other_area w-25">
+    <div class="m-4">
+      <div class=""><a href="{{ route('post.input') }}"><button class="post_button">投稿</button></a></div>
       <div class="keyword_content">
         <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="submit" value="検索" form="postSearchRequest">
@@ -42,9 +44,10 @@
       <div>
         <p class="category_search">カテゴリー検索</p>
         @foreach($categories as $category)
-        <ul class="main_categories" category_id="{{ $category->id }}"><li><span>{{ $category->main_category }}</span>
-        <span class="dli-chevron-down"></span>
-        </li>
+        <ul class="main_categories" category_id="{{ $category->id }}">
+          <li class="toggle_btn"><span>{{ $category->main_category }}</span>
+            <span class="dli-chevron-down"></span>
+          </li>
         @foreach($subcategories as $subcategory)
         @if($category->id===$subcategory->main_category_id)
         <li class="sub_categories" subcategory_id="{{$subcategory->id}}">

@@ -57,10 +57,11 @@
               </div>
             </div>
           </div>
+          
+          <div class="mt-3">
           @error('mail_address')
           <li class="error_message">{{$message}}</li>
           @enderror
-          <div class="mt-3">
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
@@ -84,10 +85,11 @@
             <label style="font-size:13px">その他</label>
           </div>
         </div>
+        
+        <div class="mt-3">
         @error('datetime_validation')
           <li class="error_message">{{$message}}</li>
           @enderror
-        <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <div class="birth-content">
           <div>
@@ -212,19 +214,19 @@
           </div>
           @endforeach
         </div>
+        <div class="mt-3">
         @error('password')
           <li class="error_message">{{$message}}</li>
           @enderror
-        <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
           </div>
         </div>
+        <div class="mt-3">
         @error('password_confirmation')
           <li class="error_message">{{$message}}</li>
           @enderror
-        <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
@@ -234,7 +236,7 @@
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
         <div class="text-center">
-          <a href="{{ route('login') }}">ログイン</a>
+          <a href="{{ route('login') }}">ログインはこちら</a>
         </div>
         </div>
       </div>

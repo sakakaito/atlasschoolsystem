@@ -66,14 +66,15 @@ font-weight: bold;
 }
 .sidebar img{
   width: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 .main-container{
   width:100%;
 }
 .sidebar p a{
   color:#FFF;
+  vertical-align: middle;
 }
 
 /* トップページ */
@@ -83,15 +84,18 @@ font-weight: bold;
   box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.3); ;
 }
 .myprofile{
-  position: absolute;
-  top: 20px;
-  left: 180px;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 .top_area{
-  padding-top: 20%;
+  padding-top: 20px;
 }
 
 /* スクール予約関連 */
+.calendar_content{
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.3); ;
+
+}
 .day-blank{
   background:#D3D3D3;
 }
@@ -106,6 +110,9 @@ font-weight: bold;
 }
 .calendar-td{
   min-width:100px;
+  border-right:1px solid #dadce0;
+
+  /* border: 1px solid; */
 }
 .pastdaycolor{
   background-color: #f1f1f1;
@@ -113,6 +120,8 @@ font-weight: bold;
 .day_part{
   color:#494949;
   font-size:12px;
+  display: flex;
+  justify-content: space-evenly;
 }
 .adjust-table{
   width:70% !important;
@@ -126,7 +135,49 @@ font-weight: bold;
 .adjust-table-btn{
   width:70%;
 }
+.text-right input{
+  margin-top: 20px;
+}
+.reception-close{
+  color: #000;
+}
+/* スクール枠登録 */
+.calendar{
+  background-color: #fff;
+  border-radius: 10px;
+  /* box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.3); ; */
 
+}
+/* スクール予約確認 */
+.school_reserve_confirmation{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.3); ;
+  margin: 50px auto;
+}
+.s_r_c_content{
+  padding: 30px;
+}
+.s_r_c_content p{
+  text-align: center;
+}
+.reserve_detail_content{
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.3);
+}
+.reserve_users_th{
+  background: #03aad2;
+  color: #fff;
+  text-align: center;
+}
+.reserve_detail_users{
+  text-align: center;
+}
+.reserve_detail_column{
+  width: 10%;
+}
 /* モーダル */
 .modal{
     display: none;
@@ -170,6 +221,7 @@ font-weight: bold;
   white-space: pre-wrap;
 }
 .detail_container{
+  position: relative;
   background:#FFF;
   border-radius: 5px;
 }
@@ -190,11 +242,13 @@ font-weight: bold;
   bottom: 20px;
 }
 .sub_category_btn{
-  width: 50px;
-  height: 20px;
+  height: 25px;
+  padding: 3px;
   background-color: #03AAD2;
   border-radius: 7px;
   border: none;
+  color: #fff;
+  font-size: 12px;
 }
 .like_btn,
 .un_like_btn{
@@ -214,6 +268,8 @@ font-weight: bold;
   border-radius: 5px;
   width: 100%;
   height: 30px;
+  color: #fff;
+  font-size: 10px;
 }
 .post_button a{
   color: #fff;
@@ -258,6 +314,7 @@ font-weight: bold;
   color: #fff;
   font-size: 10px;
   height: 30px;
+  margin-right: 3px;
 }
 .like_my_content input:last-child{
   background-color: #ebbc5d;
@@ -310,6 +367,7 @@ font-weight: bold;
 }
 /* 掲示板 詳細画面 */
 .contributor{
+  margin-top: 10px;
   font-size:12px;
   color:#999;
   font-weight:bold;
@@ -321,11 +379,13 @@ font-weight: bold;
   font-size:12px;
   color:#9E9E9E;
 }
-.detail_inner_head{
+/* .detail_inner_head{
   display:flex;
   justify-content: space-between;
-}
+} */
 .edit-modal-open{
+  position: absolute;
+  right: 70px;
   padding: 5px 10px 5px 10px;
   cursor:pointer;
   background-color: #007bff;
@@ -335,6 +395,8 @@ font-weight: bold;
   color: #fff;
 }
 .mypost_del_btn{
+  position: absolute;
+  right: 20px;
   padding: 5px 10px 5px 10px;
   cursor:pointer;
   background-color: #dc3545;
@@ -421,9 +483,9 @@ font-weight: bold;
 .reserve_users_area{
   display:flex;
   flex-wrap:wrap;
-  width:800px;
+  width:1000px;
   margin:10px auto;
-  height:80vh;
+  /* height:80vh; */
   overflow: scroll;
   padding:10px;
   background:#FFF;
@@ -453,6 +515,9 @@ font-weight: bold;
   margin-top: 50px;
   padding: 20px;
 }
+.search_area p{
+  color: #191970;
+}
 .free_word{
   border: none;
   border-radius: 5px;
@@ -464,6 +529,7 @@ font-weight: bold;
 .search_category label{
   display: block;
   font-size: small;
+  color: #191970;
 }
 .search_category select{
   width: 80px;
@@ -474,17 +540,110 @@ font-weight: bold;
   font-size: small;
   margin-bottom: 10px;
 }
+.search_conditions{
+  position: relative;
+  border-bottom: 3px solid #e0e5e9;
+  margin-bottom: 10px;
+}
 .search_conditions span{
   cursor:pointer;
+  font-size: small;
 }
 .search_conditions_inner{
   display:none;
-  background:#FFF;
+  font-size: small;
+}
+.search_conditions_inner div{
+  margin-bottom: 10px;
+}
+.search_conditions_inner label{
+  display: block;
+}
+.search_conditions_inner span{
+  margin-right: 3px;
+  font-weight: 600;
+}
+.search_conditions_inner input{
+  margin-right: 5px;
+}
+.search_conditions_inner select{
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e5e9;
+  padding: 5px ;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.selected_engineer{
+  padding-bottom: 30px;
+}
+.search_reset{
+  text-align: center;
+}
+.search_reset div{
+  margin-bottom: 20px;
+}
+.s-r-search-btn{
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #03AAD2;
+  color: #fff;
+  font-size: small;
+}
+.reset-button{
+  border: none;
+  color: #03AAD2;
+}
+/* ユーザープロフィール */
+.subject_select_content{
+  margin-top: 20px;
+}
+.subject_select_register{
+  position: relative;
+}
+.subject_select_register span:first-child{
+  margin-right: 10px;
+}
+.subject_select_arrow{
+  display: inline-block;
+  vertical-align: middle;
+  color: #03AAD2;
+  line-height: 1;
+  width: 7px;
+  height: 7px;
+  border: 0.1em solid currentColor;
+  border-left: 0;
+  border-bottom: 0;
+  box-sizing: border-box;
+  transform: translateY(-25%) rotate(135deg);
+}
+.subject_select_arrow.selected{
+  display: inline-block;
+  vertical-align: middle;
+  color: #03AAD2;
+  line-height: 1;
+  width: 7px;
+  height: 7px;
+  border: 0.1em solid currentColor;
+  border-left: 0;
+  border-bottom: 0;
+  box-sizing: border-box;
+  transform: translateY(25%) rotate(-45deg);
 }
 .subject_edit_btn{
-  font-size:12px;
-  color:#0000FF;
+  font-size:16px;
+  color:#03AAD2;
   cursor:pointer;
+}
+.subject_item{
+  display: flex;
+}
+.subject_item div{
+  padding: 5px;
 }
 .subject_inner{
   display:none;

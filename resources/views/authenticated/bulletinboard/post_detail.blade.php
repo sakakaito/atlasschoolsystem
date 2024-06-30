@@ -14,7 +14,9 @@
           </div>
           @endif
         </div>
-
+        @foreach ($post->subcategories as $subcategory)
+          <button type="submit" class="sub_category_btn">{{$subcategory->sub_category}}</button>
+        @endforeach
         <div class="contributor d-flex">
           <p>
             <span>{{ $post->user->over_name }}</span>

@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- <p>ユーザー検索</p> -->
-<div class="search_content w-100 border d-flex">
+<div class="search_content w-100 d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
     <div class="border one_person">
@@ -54,7 +54,7 @@
     </div>
     @endforeach
   </div>
-  <div class="search_area w-25 border">
+  <div class="search_area w-25">
     <p class="search_paragraph">検索</p>
     <div class="">
       <div>
@@ -75,7 +75,7 @@
         </select>
       </div>
       <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <p class="search_conditions"><span>検索条件の追加</span><span class="dli-chevron-down"></span></p>
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>
@@ -101,11 +101,13 @@
           </div>
         </div>
       </div>
-      <div>
-        <input type="reset" value="リセット" form="userSearchRequest">
-      </div>
-      <div>
-        <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+      <div class="search_reset">
+        <div>
+          <input type="submit" class="s-r-search-btn" name="search_btn" value="検索" form="userSearchRequest">
+        </div>
+        <div>
+          <input type="reset" class="reset-button" value="リセット" form="userSearchRequest">
+        </div>
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>
