@@ -14,8 +14,8 @@
 </head>
 <body class="all_content">
   <form action="{{ route('registerPost') }}" method="POST">
-    <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
-      <div class="vh-75 border register_square">
+    <div class="w-100 d-flex" style="align-items:center; justify-content:center;">
+      <div class="border register_square">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
@@ -232,7 +232,7 @@
             <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
           </div>
         </div>
-        <div class="mt-5 text-right">
+        <div class="text-right">
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
         <div class="text-center">

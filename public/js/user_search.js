@@ -2,6 +2,10 @@ $(function () {
   $('.dli-chevron-down').click(function () {
     $('.search_conditions_inner').slideToggle();
   });
+  $('.dli-chevron-down').click(function(){
+		$(this).toggleClass('selected');
+		$(this).next().slideToggle();
+	});
 
   $('.subject_select_arrow').click(function () {
     $('.subject_inner').slideToggle();
