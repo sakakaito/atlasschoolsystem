@@ -496,7 +496,7 @@ font-weight: bold;
 .reserve_users_area{
   display:flex;
   flex-wrap:wrap;
-  width:1000px;
+  width:100%;
   margin:10px auto;
   /* height:80vh; */
   overflow: scroll;

@@ -30,7 +30,7 @@
       <p><img src="{{asset('image/user.png')}}" alt="ユーザー検索"><a href="{{ route('user.show') }}">ユーザー検索</a></p>
       @show
     </div>
-    <div class="main-container w-75">
+    <div class="main-container w-100">
       @yield('content')
     </div>
   </div>
