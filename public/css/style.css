@@ -72,6 +72,7 @@ font-weight: bold;
 }
 .main-container{
   width:100%;
+  margin-bottom: 50px;
 }
 .sidebar p a{
   color:#FFF;
@@ -110,7 +111,7 @@ font-weight: bold;
   background:#EEE;
 }
 .calendar-td{
-  min-width:100px;
+  /* min-width:100px; */
   border-right:1px solid #dadce0;
 
   /* border: 1px solid; */
@@ -136,9 +137,12 @@ font-weight: bold;
 .adjust-table-btn{
   width:70%;
 }
-.text-right input{
-  margin-top: 20px;
+/* .text-right{
+  margin-right: 30px;
 }
+.text-right input{
+  margin-bottom: 20px;
+} */
 .reception-close{
   color: #000;
 }
@@ -159,6 +163,7 @@ font-weight: bold;
 .s_r_c_content{
   padding: 30px;
   background: #fff;
+  border-radius: 10px;
 }
 .s_r_c_content p{
   text-align: center;

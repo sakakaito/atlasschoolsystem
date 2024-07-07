@@ -1,18 +1,19 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<div class="school_reserve_confirmation w-75" style="background:#ECF1F6;">
+<div class="school_reserve_confirmation w-75" style="background:#fff;">
   <!-- <div class="border" style="border-radius:5px; background:#FFF;"> -->
     <div class="s_r_c_content" style="border-radius:5px;">
 
       <p class="text-center">{{ $calendar->getTitle() }}</p>
-      <div class="border">
+      <div class="">
         {!! $calendar->render() !!}
       </div>
-    </div>
-    <div class="text-right w-75 m-auto">
+      <div class="text-right">
       <input type="submit" class="btn btn-primary" value="予約する" form="reserveParts">
     </div>
+    </div>
+    
   <!-- </div> -->
 </div>
 <!-- モーダル表示 -->

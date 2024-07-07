@@ -127,7 +127,8 @@ return [
     'attributes' => [
         'main_category_name' => 'メインカテゴリー',
         'sub_category_name' => 'サブカテゴリー',
-        'post_body' => '投稿内容'
+        'post_body' => '投稿内容',
+        'post_title' => 'タイトル'
     ],
 
 ];
